@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.batch</groupId>
 	<artifactId>spring-batch-admin-parent</artifactId>
@@ -12,8 +13,8 @@
 		<url>http://github.com/SpringSource/spring-batch-admin</url>
 		<connection>scm:git:git://github.com/SpringSource/spring-batch-admin.git</connection>
 		<developerConnection>scm:git:git://github.com/SpringSource/spring-batch-admin.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 	<licenses>
 		<license>
 			<name>Apache 2.0</name>
@@ -39,8 +40,8 @@
 	</developers>
 	<properties>
 		<maven.test.failure.ignore>false</maven.test.failure.ignore>
-		<spring.batch.version>2.2.7.BUILD-SNAPSHOT</spring.batch.version>
-		<spring.framework.version>3.2.9.RELEASE</spring.framework.version>
+		<spring.batch.version>2.2.5.RELEASE</spring.batch.version>
+		<spring.framework.version>3.2.7.RELEASE</spring.framework.version>
 		<spring.integration.version>2.2.5.RELEASE</spring.integration.version>
 		<spring.retry.version>1.0.2.RELEASE</spring.retry.version>
 		<slf4j.version>1.7.6</slf4j.version>
@@ -141,7 +142,7 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -154,7 +155,8 @@
 									<pluginExecutionFilter>
 										<groupId>com.springsource.bundlor</groupId>
 										<artifactId>com.springsource.bundlor.maven</artifactId>
-										<versionRange>[1.0,)</versionRange>
+<!-- 										<versionRange>[1.0,)</versionRange> -->
+										<versionRange>[1.0.0.RELEASE,)</versionRange>
 										<goals>
 											<goal>bundlor</goal>
 										</goals>
@@ -194,6 +196,7 @@
 				<plugin>
 					<groupId>com.springsource.bundlor</groupId>
 					<artifactId>com.springsource.bundlor.maven</artifactId>
+					<version>1.0.0.RELEASE</version>
 					<inherited>true</inherited>
 					<executions>
 						<execution>
@@ -348,7 +351,7 @@
 				<groupId>org.codehaus.jackson</groupId>
 				<artifactId>jackson-mapper-asl</artifactId>
 				<version>1.6.3</version>
-				<scope>compile</scope>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
@@ -460,7 +463,7 @@
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>5.1.6</version>
-				<scope>runtime</scope>
+<!-- 				<scope>runtime</scope> -->
 			</dependency>
 			<dependency>
 				<groupId>org.apache.derby</groupId>
@@ -694,7 +697,8 @@
 	</dependencyManagement>
 	<pluginRepositories>
 		<pluginRepository>
-			<!-- This has to be defined and visible in default profile for bundlor to work -->
+			<!-- This has to be defined and visible in default profile for bundlor 
+				to work -->
 			<id>spring-ebr</id>
 			<name>Spring Maven Release Repository</name>
 			<url>http://repository.springsource.com/maven/bundles/release</url>
@@ -702,6 +706,18 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
+		<pluginRepository>
+			<id>maven.alfresco</id>
+			<name>SpringSource Enterprise Bundle Repository</name>
+			<url>https://maven.alfresco.com/nexus/content/groups/public/</url>
+		</pluginRepository>
+		 <pluginRepository>
+        <id>plugin.repo.maven.central2</id>
+        <url>http://objectstyle.org/maven2/</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </pluginRepository>
 	</pluginRepositories>
 	<distributionManagement>
 		<site>
@@ -737,6 +753,14 @@
 			<id>spring-ebr</id>
 			<name>Spring Enterprise Bundle Repository</name>
 			<url>http://repository.springsource.com/maven/bundles/release/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>maven.alfresco</id>
+			<name>Spring Enterprise Bundle Milestone Repository</name>
+			<url>https://maven.alfresco.com/nexus/content/groups/public/</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
